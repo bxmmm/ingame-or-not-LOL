@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
+import { connect } from 'react-redux';
+import * as actions from './actions/index';
+import Search from './components/Search';
 import './index.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        {this.props.children}
+        <div className='container'>
+        	<Search />
+      	  <button onClick={() => this.props.playingLol('EUNE', 65243966)} className='btn btn-success'>Be234 - Me</button>
+       	 {this.props.children}
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
